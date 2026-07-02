@@ -4,29 +4,25 @@
 body {
     overflow-y: auto;
     margin: 0;
-    padding: 0;
+    padding: 24px 16px;
     background-size: cover;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: auto;
 }
 
 .common {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     text-align: center;
 }
 
 .body-mb {
-    top: 40vh;
-    width: 70%;
+    width: min(100%, 1200px);
 }
 
 .body-pc {
-    top: 40vh;
-    width: 40%;
+    width: min(100%, 1200px);
 }
 
 
@@ -41,10 +37,117 @@ body {
     border-radius: 10px; /* 可选：添加圆角 */
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 可选：添加阴影效果 */
+    width: min(100%, 1200px);
+    box-sizing: border-box;
 }
+
+.upload-demo {
+    width: 100%;
+}
+
+.upload-demo .el-upload {
+    width: 100%;
+}
+
+.upload-demo .el-upload-dragger {
+    width: 100%;
+    min-height: 220px;
+    box-sizing: border-box;
+}
+
+.upload-demo .el-upload-dragger .el-icon-upload {
+    margin-top: 28px;
+}
+
+.upload-demo .el-upload__text,
+.upload-demo .el-upload__tip {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
 .slider-container {
     margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 .button {
     margin: 10px 0;
+}
+
+#preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.preview-item {
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.65);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.preview-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.image-info {
+    margin-top: 8px;
+    font-size: 14px;
+    word-break: break-word;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+
+    #app {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .upload-demo .el-upload-dragger {
+        min-height: 200px;
+    }
+
+    .slider-container {
+        gap: 8px;
+    }
+
+    #preview {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    #app {
+        padding: 12px;
+    }
+
+    .slider-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .slider-container input[type="range"] {
+        width: 100%;
+    }
+
+    .upload-demo .el-upload-dragger {
+        min-height: 180px;
+    }
+
+    #preview {
+        grid-template-columns: 1fr;
+    }
 }
